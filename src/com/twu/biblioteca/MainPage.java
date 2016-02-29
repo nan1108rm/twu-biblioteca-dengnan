@@ -19,7 +19,7 @@ public class MainPage implements ActionListener{
     }
 
     private void initialize(){
-        ArrayList<Book> currentBookList = BibliotecaHandler.initBookList();
+        final ArrayList<Book> currentBookList = BibliotecaHandler.initBookList();
         Object[][] bookArray = BibliotecaHandler.generateTableData(currentBookList);
         String[] columnNames = {"Book Name","Author","Published Year"};
 
@@ -36,10 +36,16 @@ public class MainPage implements ActionListener{
         final JPanel panelBookList = new JPanel();
         panelBookList.setLayout(null);
         panelBookList.setBackground(new Color(180, 157, 216,215));
-        JTextField searchBook = new JTextField();
+        final JTextField searchBook = new JTextField();
         searchBook.setBounds(200,80,250,25);
         JButton searchBtn = new JButton("Search");
         searchBtn.setBounds(475,80,80,25);
+        searchBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
 
         JTable bookList = new JTable(bookArray,columnNames);
         JScrollPane jsp = new JScrollPane(bookList);

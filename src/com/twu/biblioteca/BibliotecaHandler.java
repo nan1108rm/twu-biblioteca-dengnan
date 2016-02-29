@@ -33,21 +33,13 @@ public class BibliotecaHandler {
         return bookArray;
     }
 
-    public static boolean searchBook(String name,BookShelf shelf){
-        ArrayList<Book> bookList = shelf.getBookList();
-        boolean bookIsValid = false;
+    public static ArrayList<Book> searchBook(String name,ArrayList<Book> bookList){
+        ArrayList<Book> targetBookList = new ArrayList<Book>();
         for(Book aBook:bookList){
             if(aBook.getName().equals(name)){
-                bookIsValid = true;
-                getTargetBook(aBook);
+                targetBookList.add(aBook);
             }
         }
-        return bookIsValid;
-    }
-
-    public static ArrayList<Book> getTargetBook(Book targetBook){
-        ArrayList<Book> targetBookList = new ArrayList<Book>();
-        targetBookList.add(targetBook);
         return targetBookList;
     }
 }

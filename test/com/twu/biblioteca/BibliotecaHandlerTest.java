@@ -49,4 +49,13 @@ public class BibliotecaHandlerTest {
         ArrayList<Book> newList = BibliotecaHandler.checkOutBook(new Book("Hello World","DN","1991"));
         assertEquals(currentList.remove(0),newList)
     }*/
+
+    /*@Test
+    public void testReturnBook(){
+        ArrayList<Book> originBooks = new ArrayList<Book>();
+        originBooks.add(new Book("Love, pray and eat","J","2000"));
+        originBooks.add(new Book("Hello World","DN","1991"));
+        ArrayList<Book> list = BibliotecaHandler.returnBook("Hello World",originBooks);
+        assertEquals(originBooks.get(1),list.get(0));
+    }*/
 }

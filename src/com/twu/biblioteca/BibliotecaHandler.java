@@ -42,4 +42,12 @@ public class BibliotecaHandler {
         }
         return targetBookList;
     }
+
+    /*public static ArrayList<Book> returnBook(String name,ArrayList<Book> bookList){
+        ArrayList<Book> targetList = searchBook(name, bookList);
+        if(targetList.size() != 0){
+            shelf.addBook(targetList.get(0));
+        }
+        return shelf.getBookList();
+    }*/
 }

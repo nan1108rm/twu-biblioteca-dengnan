@@ -60,7 +60,7 @@ public class MainPage implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
                if(searchBook.getText() != null){
-                   targetBookList = BibliotecaHandler.searchBook(searchBook.getText(),currentBookList);
+                   targetBookList = BibliotecaHandler.searchBook(searchBook.getText(),originBookList);
                    bookArray = BibliotecaHandler.generateTableData(targetBookList);
                    mainPanelCenter.setVisible(false);
                    panelSearchBook.setVisible(true);
@@ -105,6 +105,23 @@ public class MainPage implements ActionListener{
                         JOptionPane.showMessageDialog(null,"Thank you! Enjoy the book!");
                     }else{
                         JOptionPane.showMessageDialog(null,"That book is not avaliable!");
+                    }
+                }
+            }
+        });
+
+        returnBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedSearchedBook = targetBookTable.getSelectedRow();
+                if(selectedSearchedBook >= 0){
+                    String searchedBookName = targetBookTable.getValueAt(selectedSearchedBook,0).toString();
+                    ArrayList<Book> searchedBookList = BibliotecaHandler.searchBook(searchedBookName,originBookList);
+                    if( searchedBookList.size() >= 0){
+                        currentBookList.add(searchedBookList.get(0));
+                        JOptionPane.showMessageDialog(null,"Thank you for returning the book!");
+                    }else{
+                        JOptionPane.showMessageDialog(null,"That is not a valid book to return!");
                     }
                 }
             }

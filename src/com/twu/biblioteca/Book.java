@@ -5,8 +5,20 @@ package com.twu.biblioteca;
  */
 public class Book {
     private String name;
+    private String author;
+    private String publishedYear;
 
-    public Book(String name){
+    public Book(String name, String author, String year){
+        this.name = name;
+        this.author = author;
+        this.publishedYear = year;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
         this.name = name;
     }
 }

@@ -19,4 +19,13 @@ public class BookShelf {
     public ArrayList<Book> getBookList(){
         return bookList;
     }
+
+    public ArrayList<Book> removeBook(String name){
+        for(Book aBook:bookList){
+            if(aBook.getName().equals(name)){
+                bookList.remove(aBook);
+            }
+        }
+        return bookList;
+    }
 }

@@ -34,4 +34,14 @@ public class BookListTest {
         bookShelf.addBook(aBook2);
         assertTrue(books.equals(bookShelf.getBookList()));
     }
+
+    @Test
+    public void testRemoveBookList(){
+        BookShelf shelf = new BookShelf();
+        shelf.addBook(new Book("Hello World","DN","1991"));
+        shelf.addBook(new Book("Love, pray and eat","J","2000"));
+        shelf.removeBook("Hello World");
+        ArrayList<Book> bookList = shelf.getBookList();
+        assertEquals(1,bookList.size());
+    }
 }

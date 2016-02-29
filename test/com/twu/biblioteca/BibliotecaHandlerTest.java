@@ -39,4 +39,12 @@ public class BibliotecaHandlerTest {
         targetBookList.add(book);
         assertEquals(BibliotecaHandler.searchBook("Hello World",bookList),targetBookList);
     }
+
+    /*@Test
+    public void testCheckoutBook(){
+        BookShelf bookShelf = new BookShelf();
+        bookShelf.addBook(new Book("Hello World","DN","1991"));
+        bookShelf.addBook(new Book("Love, pray and eat","J","2000"));
+        ArrayList<Book> currentList = bookShelf.getBookList();
+    }*/
 }

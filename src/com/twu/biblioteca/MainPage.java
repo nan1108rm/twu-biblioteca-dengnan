@@ -16,13 +16,14 @@ public class MainPage implements ActionListener{
     static Object[][] bookArray= BibliotecaHandler.generateTableData(currentBookList);
     String[] columnNames = {"Book Name","Author","Published Year"};
     static ArrayList<Book> targetBookList = new ArrayList<Book>();
+    static int selectedBookRow = 0;
+    static JTable bookListTable;
 
     public MainPage(){
         initialize();
     }
 
     private void initialize(){
-
         frame = new JFrame();
         JPanel panelMenu = new JPanel();
         panelMenu.setBackground(new Color(191, 230, 240));
@@ -62,8 +63,8 @@ public class MainPage implements ActionListener{
                    bookArray = BibliotecaHandler.generateTableData(targetBookList);
                    mainPanelCenter.setVisible(false);
                    panelSearchBook.setVisible(true);
-                   JTable targetBookList = new JTable(bookArray,columnNames);
-                   JScrollPane jsp = new JScrollPane(targetBookList);
+                   JTable targetBookTable = new JTable(bookArray,columnNames);
+                   JScrollPane jsp = new JScrollPane(targetBookTable);
                    jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
                    jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
                    jsp.setBounds(100,50,500,400);
@@ -73,8 +74,8 @@ public class MainPage implements ActionListener{
             }
         });
 
-        JTable bookList = new JTable(bookArray,columnNames);
-        JScrollPane jsp = new JScrollPane(bookList);
+        bookListTable = new JTable(bookArray,columnNames);
+        JScrollPane jsp = new JScrollPane(bookListTable);
         jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         jsp.setBounds(100,50,500,400);
@@ -94,7 +95,10 @@ public class MainPage implements ActionListener{
         checkoutBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new BibliotecaApp();
+                selectedBookRow = bookListTable.getSelectedRow();
+                String selectedBookName = bookListTable.getValueAt(selectedBookRow,0).toString();
+                ArrayList<Book> selectedBookList = BibliotecaHandler.searchBook(selectedBookName,currentBookList);
+                //if(selectedBookList.size() != 0){}
             }
         });
 

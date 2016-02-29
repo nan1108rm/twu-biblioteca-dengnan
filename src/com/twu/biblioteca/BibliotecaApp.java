@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BibliotecaApp {
+public class BibliotecaApp{
     private JFrame frame;
 
     public static void main(String[] args) {
@@ -49,29 +49,25 @@ public class BibliotecaApp {
         frame.getContentPane().add(BorderLayout.EAST,panelRight);
 
         JPanel panelCenter = new JPanel();
-        JButton listBook = new JButton("Book List");
-        JButton returnBook = new JButton("Return Book");
-        JButton invalidBtn = new JButton("Invalid Button");
+        JButton enterBtn = new JButton("Enter");
         JButton quit = new JButton("Quit");
         panelCenter.setLayout(new BoxLayout(panelCenter,BoxLayout.Y_AXIS));
         panelCenter.setBackground(new Color(202, 184, 238));
-        panelCenter.add(listBook);
-        panelCenter.add(returnBook);
-        panelCenter.add(invalidBtn);
+        panelCenter.add(enterBtn);
         panelCenter.add(quit);
         frame.getContentPane().add(BorderLayout.CENTER, panelCenter);
 
-        listBook.addActionListener(new ActionListener() {
+        enterBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new BookListPage();
+                new MainPage();
             }
         });
 
-        returnBook.addActionListener(new ActionListener() {
+        quit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new BookReturnPage();
+                System.exit(0);
             }
         });
 

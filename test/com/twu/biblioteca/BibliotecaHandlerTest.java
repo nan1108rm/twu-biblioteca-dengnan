@@ -1,7 +1,11 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 
 /**
@@ -22,5 +26,13 @@ public class BibliotecaHandlerTest {
         assertEquals("Love, pray and eat",result[1][0]);
         assertEquals("J",result[1][1]);
         assertEquals("2000",result[1][2]);
+    }
+
+    @Test
+    public void testSearchBook(){
+        BookShelf bookShelf = new BookShelf();
+        bookShelf.addBook(new Book("Hello World","DN","1991"));
+        bookShelf.addBook(new Book("Love, pray and eat","J","2000"));
+        assertSame(BibliotecaHandler.searchBook("Hello World",bookShelf),true);
     }
 }

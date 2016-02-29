@@ -41,13 +41,6 @@ public class MainPage implements ActionListener{
         JButton searchBtn = new JButton("Search");
         searchBtn.setBounds(475,80,80,25);
 
-        String[] headers = { "Book Name", "Author", "Published Year" };
-        Object[][] cellData = null;
-        DefaultTableModel model = new DefaultTableModel(cellData, headers) {
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
         JTable bookList = new JTable(bookArray,columnNames);
         JScrollPane jsp = new JScrollPane(bookList);
         jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);

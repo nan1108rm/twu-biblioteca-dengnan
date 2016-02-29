@@ -31,4 +31,15 @@ public class BibliotecaHandler {
         }
         return bookArray;
     }
+
+    public static boolean searchBook(String name,BookShelf shelf){
+        ArrayList<Book> bookList = shelf.getBookList();
+        boolean bookIsValid = false;
+        for(Book aBook:bookList){
+            if(aBook.getName().equals(name)){
+                bookIsValid = true;
+            }
+        }
+        return bookIsValid;
+    }
 }

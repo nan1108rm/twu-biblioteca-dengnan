@@ -7,9 +7,10 @@ import java.util.ArrayList;
  */
 public class BibliotecaHandler {
     final static int BOOK_DETAIL_AMOUNT = 3;
+    static BookShelf shelf;
 
     public static ArrayList<Book> initBookList(){
-        BookShelf shelf = new BookShelf();
+        shelf = new BookShelf();
         shelf.addBook(new Book("Hello World","DN","1991"));
         shelf.addBook(new Book("Love, pray and eat","J","2000"));
         return shelf.getBookList();
@@ -38,8 +39,15 @@ public class BibliotecaHandler {
         for(Book aBook:bookList){
             if(aBook.getName().equals(name)){
                 bookIsValid = true;
+                getTargetBook(aBook);
             }
         }
         return bookIsValid;
+    }
+
+    public static ArrayList<Book> getTargetBook(Book targetBook){
+        ArrayList<Book> targetBookList = new ArrayList<Book>();
+        targetBookList.add(targetBook);
+        return targetBookList;
     }
 }

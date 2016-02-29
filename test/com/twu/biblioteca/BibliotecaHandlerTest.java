@@ -46,5 +46,7 @@ public class BibliotecaHandlerTest {
         bookShelf.addBook(new Book("Hello World","DN","1991"));
         bookShelf.addBook(new Book("Love, pray and eat","J","2000"));
         ArrayList<Book> currentList = bookShelf.getBookList();
+        ArrayList<Book> newList = BibliotecaHandler.checkOutBook(new Book("Hello World","DN","1991"));
+        assertEquals(currentList.remove(0),newList)
     }*/
 }

@@ -12,12 +12,13 @@ import javax.swing.JTable;
  */
 public class MainPage implements ActionListener{
     private JFrame frame;
-    final static ArrayList<Book> currentBookList = BibliotecaHandler.initBookList();
+    final static ArrayList<Book> originBookList = BibliotecaHandler.initBookList();
+    static ArrayList<Book> currentBookList = originBookList;
     static Object[][] bookArray= BibliotecaHandler.generateTableData(currentBookList);
     String[] columnNames = {"Book Name","Author","Published Year"};
     static ArrayList<Book> targetBookList = new ArrayList<Book>();
-    static int selectedBookRow = 0;
-    static JTable bookListTable;
+    static int selectedSearchedBook;
+    static JTable targetBookTable;
 
     public MainPage(){
         initialize();
@@ -63,7 +64,7 @@ public class MainPage implements ActionListener{
                    bookArray = BibliotecaHandler.generateTableData(targetBookList);
                    mainPanelCenter.setVisible(false);
                    panelSearchBook.setVisible(true);
-                   JTable targetBookTable = new JTable(bookArray,columnNames);
+                   targetBookTable = new JTable(bookArray,columnNames);
                    JScrollPane jsp = new JScrollPane(targetBookTable);
                    jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
                    jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -74,7 +75,7 @@ public class MainPage implements ActionListener{
             }
         });
 
-        bookListTable = new JTable(bookArray,columnNames);
+        JTable bookListTable = new JTable(bookArray,columnNames);
         JScrollPane jsp = new JScrollPane(bookListTable);
         jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -95,10 +96,17 @@ public class MainPage implements ActionListener{
         checkoutBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selectedBookRow = bookListTable.getSelectedRow();
-                String selectedBookName = bookListTable.getValueAt(selectedBookRow,0).toString();
-                ArrayList<Book> selectedBookList = BibliotecaHandler.searchBook(selectedBookName,currentBookList);
-                //if(selectedBookList.size() != 0){}
+                selectedSearchedBook = targetBookTable.getSelectedRow();
+                if(selectedSearchedBook >= 0){
+                    String searchedBookName = targetBookTable.getValueAt(selectedSearchedBook,0).toString();
+                    ArrayList<Book> searchedBookList = BibliotecaHandler.searchBook(searchedBookName,currentBookList);
+                    if( searchedBookList.size() >= 0){
+                        currentBookList.remove(searchedBookList.get(0));
+                        JOptionPane.showMessageDialog(null,"Thank you! Enjoy the book!");
+                    }else{
+                        JOptionPane.showMessageDialog(null,"That book is not avaliable!");
+                    }
+                }
             }
         });
 

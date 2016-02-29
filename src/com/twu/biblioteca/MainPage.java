@@ -13,15 +13,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MainPage implements ActionListener{
     private JFrame frame;
+    final static ArrayList<Book> currentBookList = BibliotecaHandler.initBookList();
+    static Object[][] bookArray= BibliotecaHandler.generateTableData(currentBookList);
+    String[] columnNames = {"Book Name","Author","Published Year"};
+    static ArrayList<Book> targetBookList = new ArrayList<Book>();
 
     public MainPage(){
         initialize();
     }
 
     private void initialize(){
-        final ArrayList<Book> currentBookList = BibliotecaHandler.initBookList();
-        Object[][] bookArray = BibliotecaHandler.generateTableData(currentBookList);
-        String[] columnNames = {"Book Name","Author","Published Year"};
 
         frame = new JFrame();
         JPanel panelMenu = new JPanel();
@@ -36,14 +37,31 @@ public class MainPage implements ActionListener{
         final JPanel panelBookList = new JPanel();
         panelBookList.setLayout(null);
         panelBookList.setBackground(new Color(180, 157, 216,215));
+
         final JTextField searchBook = new JTextField();
         searchBook.setBounds(200,80,250,25);
         JButton searchBtn = new JButton("Search");
         searchBtn.setBounds(475,80,80,25);
+        final JPanel panelSearchBook = new JPanel();
+        panelSearchBook.setLayout(null);
+        panelSearchBook.setBackground(new Color(180, 157, 216,215));
+        panelSearchBook.setVisible(false);
         searchBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+               if(searchBook.getText() != null){
+                   targetBookList = BibliotecaHandler.searchBook(searchBook.getText(),currentBookList);
+                   bookArray = BibliotecaHandler.generateTableData(targetBookList);
+                   panelBookList.setVisible(false);
+                   panelSearchBook.setVisible(true);
+                   JTable targetBookList = new JTable(bookArray,columnNames);
+                   JScrollPane jsp = new JScrollPane(targetBookList);
+                   jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+                   jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                   jsp.setBounds(180,120,400,300);
+                   panelSearchBook.add(jsp);
+                   frame.getContentPane().add(panelSearchBook);
+               }
             }
         });
 

@@ -15,4 +15,8 @@ public class BookShelf {
     public Book getBook(int position){
         return bookList.get(position);
     }
+
+    public ArrayList<Book> getBookList(){
+        return bookList;
+    }
 }

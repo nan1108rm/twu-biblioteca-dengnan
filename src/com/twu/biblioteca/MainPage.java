@@ -19,6 +19,10 @@ public class MainPage implements ActionListener{
     }
 
     private void initialize(){
+        ArrayList<Book> currentBookList = BibliotecaHandler.initBookList();
+        Object[][] bookArray = BibliotecaHandler.generateTableData(currentBookList);
+        String[] columnNames = {"Book Name","Author","Published Year"};
+
         frame = new JFrame();
         JPanel panelMenu = new JPanel();
         panelMenu.setBackground(new Color(191, 230, 240));
@@ -44,7 +48,7 @@ public class MainPage implements ActionListener{
                 return false;
             }
         };
-        JTable bookList = new JTable(model);
+        JTable bookList = new JTable(bookArray,columnNames);
         JScrollPane jsp = new JScrollPane(bookList);
         jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);

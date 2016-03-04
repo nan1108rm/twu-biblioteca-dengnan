@@ -35,7 +35,11 @@ public class BibliotecaHandlerTest {
 
     /*@Test
     public void testCheckoutBook(){
-
+        ArrayList<Book> bookList = new ArrayList<Book>();
+        bookList.add(new Book("Hello World", "DN", "1991"));
+        bookList.add(new Book("Eat pray love", "Julie", "1998"));
+        BibliotecaHandler.checkOutBook(targetBookList);
+        Biblio
     }*/
 
     /*@Test

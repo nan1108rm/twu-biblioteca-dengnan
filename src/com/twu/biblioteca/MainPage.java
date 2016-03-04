@@ -12,8 +12,8 @@ import javax.swing.JTable;
  */
 public class MainPage implements ActionListener{
     private JFrame frame;
-    final static ArrayList<Book> originBookList = BibliotecaHandler.initBookList();
-    static ArrayList<Book> currentBookList = originBookList;
+    final static ArrayList<Book> originBookList = BibliotecaHandler.getOriginBookList();
+    static ArrayList<Book> currentBookList = BibliotecaHandler.getCurrentBookList();
     static Object[][] bookArray= BibliotecaHandler.generateTableData(currentBookList);
     String[] columnNames = {"Book Name","Author","Published Year"};
     static ArrayList<Book> targetBookList = new ArrayList<Book>();
@@ -41,10 +41,10 @@ public class MainPage implements ActionListener{
 
         final JPanel mainPanelNorth = new JPanel();
         mainPanelNorth.setBackground(new Color(180, 157, 216,215));
-        final JTextField searchBook = new JTextField();
-        searchBook.setColumns(20);
+        final JTextField searchBookTxt = new JTextField();
+        searchBookTxt.setColumns(20);
         JButton searchBtn = new JButton("Search");
-        mainPanelNorth.add(searchBook);
+        mainPanelNorth.add(searchBookTxt);
         mainPanelNorth.add(searchBtn);
         mainPanelNorth.setVisible(true);
         mainPanel.add(BorderLayout.NORTH,mainPanelNorth);
@@ -59,8 +59,8 @@ public class MainPage implements ActionListener{
         searchBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               if(searchBook.getText() != null){
-                   targetBookList = BibliotecaHandler.searchBook(searchBook.getText(),originBookList);
+               if(searchBookTxt.getText() != null){
+                   targetBookList = BibliotecaHandler.searchBook(searchBookTxt.getText(),originBookList);
                    bookArray = BibliotecaHandler.generateTableData(targetBookList);
                    mainPanelCenter.setVisible(false);
                    panelSearchBook.setVisible(true);

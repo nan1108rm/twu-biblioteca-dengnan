@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
-import net.sf.json.JSONObject;
-
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -10,11 +9,23 @@ import java.util.ArrayList;
 public class BibliotecaHandler {
     final static int BOOK_DETAIL_AMOUNT = 3;
 
-    public static ArrayList<Book> initBookList(){
+    public static ArrayList<Book> getOriginBookList(){
         String path = System.getProperty("user.dir");
         String filePath = path + "/src/com/twu/biblioteca/BookList.json";
         String bookStr = JSONHelper.readJSON(filePath);
         return JSONHelper.createBookArrayFromJSON(bookStr);
+    }
+
+    public static ArrayList<Book> getCurrentBookList(){
+        String path = System.getProperty("user.dir");
+        String filePath = path + "/src/com/twu/biblioteca/CurrentBookList.json";
+        File f = new File(filePath);
+        if(f.exists()){
+            String bookStr = JSONHelper.readJSON(filePath);
+            return JSONHelper.createBookArrayFromJSON(bookStr);
+        }else{
+            return getOriginBookList();
+        }
     }
 
     public static Object[][] generateTableData(ArrayList<Book> bookArraylist){

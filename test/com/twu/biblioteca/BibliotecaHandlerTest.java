@@ -33,14 +33,20 @@ public class BibliotecaHandlerTest {
         assertEquals("Hello World", targetList.get(0).getName());
     }
 
-    /*@Test
+    @Test
     public void testCheckoutBook(){
+        String path = System.getProperty("user.dir");
+        String filePath = path + "/src/com/twu/biblioteca/CurrentBookList.json";
+        String expectedStr = "{\"books\":[{\"year\":\"1998\",\"author\":\"Julie\",\"name\":\"Eat pray love\"}]}";
         ArrayList<Book> bookList = new ArrayList<Book>();
         bookList.add(new Book("Hello World", "DN", "1991"));
         bookList.add(new Book("Eat pray love", "Julie", "1998"));
-        BibliotecaHandler.checkOutBook(targetBookList);
-        Biblio
-    }*/
+        ArrayList<Book> removedBook = new ArrayList<Book>();
+        removedBook.add(new Book("Hello World","DN","1991"));
+        BibliotecaHandler.checkOutBook(removedBook);
+        String actulStr = JSONHelper.readJSON(filePath);
+        assertEquals(expectedStr,actulStr);
+    }
 
     /*@Test
     public void testReturnBook(){

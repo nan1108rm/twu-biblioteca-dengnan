@@ -59,6 +59,14 @@ public class JSONHelper {
     }
 
     public static void writeJSON(JSONObject jsonObject, String filePath) throws IOException {
+        File f = new File(filePath);
+        if(!f.exists()){
+            try{
+                f.createNewFile();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
         writer = new BufferedWriter(new FileWriter(filePath,false));
         writer.write(jsonObject.toString());
         writer.close();

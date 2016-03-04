@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JTable;
 
@@ -100,12 +101,9 @@ public class MainPage implements ActionListener{
                 if(selectedSearchedBook >= 0){
                     String searchedBookName = targetBookTable.getValueAt(selectedSearchedBook,0).toString();
                     ArrayList<Book> searchedBookList = BibliotecaHandler.searchBook(searchedBookName,currentBookList);
-                    if( searchedBookList.size() >= 0){
-                        currentBookList.remove(searchedBookList.get(0));
-                        JOptionPane.showMessageDialog(null,"Thank you! Enjoy the book!");
-                    }else{
-                        JOptionPane.showMessageDialog(null,"That book is not avaliable!");
-                    }
+                    BibliotecaHandler.checkOutBook(searchedBookList);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Please select a book.");
                 }
             }
         });

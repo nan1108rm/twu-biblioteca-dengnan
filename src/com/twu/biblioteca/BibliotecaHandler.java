@@ -1,6 +1,10 @@
 package com.twu.biblioteca;
 
+import net.sf.json.JSONObject;
+
+import javax.swing.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -53,6 +57,28 @@ public class BibliotecaHandler {
             }
         }
         return targetBookList;
+    }
+
+    public static void checkOutBook(ArrayList<Book> bookList){
+        String path = System.getProperty("user.dir");
+        String filePath = path + "/src/com/twu/biblioteca/CurrentBookList.json";
+        if( bookList.size() >= 0){
+            int i = 0;
+            ArrayList<Book> removedBookList = getCurrentBookList();
+            while(!bookList.get(0).getName().equals(removedBookList.get(i).getName())){
+                i++;
+            }
+            removedBookList.remove(i);
+            JSONObject jsonObject = JSONHelper.createJSONObjectFromList(removedBookList);
+            try{
+                JSONHelper.writeJSON(jsonObject,filePath);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(null,"Thank you! Enjoy the book!");
+        }else{
+            JOptionPane.showMessageDialog(null,"That book is not avaliable!");
+        }
     }
 
     /*public static ArrayList<Book> returnBook(String name,ArrayList<Book> bookList){

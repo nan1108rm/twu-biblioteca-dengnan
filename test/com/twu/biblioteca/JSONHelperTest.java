@@ -47,14 +47,6 @@ public class JSONHelperTest {
         String path = System.getProperty("user.dir");
         String filePath = path + "/src/com/twu/biblioteca/CurrentBookList.json";
         JSONObject jsonObj = JSONObject.fromObject(expectedStr);
-        File f = new File(filePath);
-        if(!f.exists()){
-            try{
-                f.createNewFile();
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-        }
         JSONHelper.writeJSON(jsonObj,filePath);
         String actualStr = JSONHelper.readJSON(filePath);
         assertEquals(expectedStr,actualStr);

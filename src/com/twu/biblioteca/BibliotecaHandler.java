@@ -81,11 +81,21 @@ public class BibliotecaHandler {
         }
     }
 
-    /*public static ArrayList<Book> returnBook(String name,ArrayList<Book> bookList){
-        ArrayList<Book> targetList = searchBook(name, bookList);
-        if(targetList.size() != 0){
-            shelf.addBook(targetList.get(0));
+    public static void returnBook(ArrayList<Book> bookList){
+        String path = System.getProperty("user.dir");
+        String filePath = path + "/src/com/twu/biblioteca/CurrentBookList.json";
+        if( bookList.size() >= 0){
+            ArrayList<Book> addedBookList = getCurrentBookList();
+            addedBookList.add(bookList.get(0));
+            JSONObject jsonObject = JSONHelper.createJSONObjectFromList(addedBookList);
+            try{
+                JSONHelper.writeJSON(jsonObject,filePath);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(null,"Thank you for returning the book!");
+        }else{
+            JOptionPane.showMessageDialog(null,"That is not a valid book to return!");
         }
-        return shelf.getBookList();
-    }*/
+    }
 }

@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4560b08d-f66e-46ba-8406-22b6fb7d2256" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/CurrentBookList.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/BibliotecaHandler.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/BibliotecaHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainPage$2.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainPage$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainPage$3.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainPage$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainPage$4.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainPage$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainPage$5.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainPage$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainPage.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/MainPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BibliotecaHandlerTest.class" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BibliotecaHandlerTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/JSONHelper.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/JSONHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/MainPage.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/MainPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaHandlerTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaHandlerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/JSONHelperTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/JSONHelperTest.java" />
     </list>
     <ignored path="biblioteca.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BibliotecaHandlerTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BibliotecaHandlerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaHandlerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.7297297">
+              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#351#357#0" expanded="true" />
@@ -94,8 +101,8 @@
       <file leaf-file-name="MainPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/MainPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-47.77778">
-              <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
+            <state vertical-scroll-proportion="-39.444443">
+              <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#730#736#0" expanded="true" />
@@ -103,23 +110,24 @@
                 <element signature="e#862#863#0" expanded="true" />
                 <element signature="e#2342#3345#0" expanded="true" />
                 <element signature="e#3344#3345#0" expanded="true" />
-                <element signature="e#4947#4948#0" expanded="true" />
-                <element signature="e#4988#5848#0" expanded="true" />
-                <element signature="e#5847#5848#0" expanded="true" />
-                <element signature="e#5975#6150#0" expanded="true" />
-                <element signature="e#6149#6150#0" expanded="true" />
-                <element signature="e#6291#6539#0" expanded="true" />
-                <element signature="e#6538#6539#0" expanded="true" />
+                <element signature="e#4329#5015#0" expanded="true" />
+                <element signature="e#5014#5015#0" expanded="true" />
+                <element signature="e#5055#5718#0" expanded="true" />
+                <element signature="e#5717#5718#0" expanded="true" />
+                <element signature="e#5845#6020#0" expanded="true" />
+                <element signature="e#6019#6020#0" expanded="true" />
+                <element signature="e#6161#6409#0" expanded="true" />
+                <element signature="e#6408#6409#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BibliotecaHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BibliotecaHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8445946">
-              <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="89" column="87" selection-start-line="89" selection-start-column="87" selection-end-line="89" selection-end-column="87" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1816#1822#0" expanded="true" />
@@ -160,8 +168,8 @@
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/JSONHelper.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/JSONHelperTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/MainPage.java" />
-        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaHandler.java" />
+        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaHandlerTest.java" />
       </list>
     </option>
   </component>
@@ -277,32 +285,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.BibliotecaApp">
-    <configuration default="false" name="JSONHelperTest.testCreateBookListFromJSON" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="biblioteca" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.JSONHelperTest" />
-      <option name="METHOD_NAME" value="testCreateBookListFromJSON" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="JSONHelperTest.testCreateJSONObjectFromList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -399,6 +381,32 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="biblioteca" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="BibliotecaHandlerTest.testReturnBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="biblioteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaHandlerTest" />
+      <option name="METHOD_NAME" value="testReturnBook" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -703,19 +711,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.JSONHelperTest.testCreateBookListFromJSON" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.JSONHelperTest.testCreateJSONObjectFromList" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.JSONHelperTest.testWriteJSONBookList" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.BibliotecaHandlerTest.testCheckoutBook" />
-      <item index="4" class="java.lang.String" itemvalue="Application.BibliotecaApp" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.JSONHelperTest.testCreateJSONObjectFromList" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.JSONHelperTest.testWriteJSONBookList" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.BibliotecaHandlerTest.testCheckoutBook" />
+      <item index="3" class="java.lang.String" itemvalue="Application.BibliotecaApp" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.BibliotecaHandlerTest.testReturnBook" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.BibliotecaApp" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.BibliotecaHandlerTest.testCheckoutBook" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.JSONHelperTest.testWriteJSONBookList" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.JSONHelperTest.testCreateJSONObjectFromList" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.JSONHelperTest.testCreateBookListFromJSON" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.BibliotecaHandlerTest.testReturnBook" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.BibliotecaHandlerTest.testCheckoutBook" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.JSONHelperTest.testWriteJSONBookList" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.JSONHelperTest.testCreateJSONObjectFromList" />
       </list>
     </recent_temporary>
   </component>
@@ -753,14 +761,14 @@
     <history-entry file="BibliotecaHandlerTest_testCheckoutBook - 2016.03.05 at 00h 27m 10s.xml">
       <configuration name="BibliotecaHandlerTest.testCheckoutBook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JSONHelperTest_testCreateJSONObjectFromList - 2016.03.04 at 23h 17m 20s.xml">
-      <configuration name="JSONHelperTest.testCreateJSONObjectFromList" configurationId="JUnit" />
+    <history-entry file="BibliotecaHandlerTest_testReturnBook - 2016.03.05 at 00h 44m 03s.xml">
+      <configuration name="BibliotecaHandlerTest.testReturnBook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JSONHelperTest_testCreateJSONObjectFromList - 2016.03.04 at 23h 18m 48s.xml">
-      <configuration name="JSONHelperTest.testCreateJSONObjectFromList" configurationId="JUnit" />
+    <history-entry file="BibliotecaHandlerTest_testReturnBook - 2016.03.05 at 00h 46m 22s.xml">
+      <configuration name="BibliotecaHandlerTest.testReturnBook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JSONHelperTest_testCreateJSONObjectFromList - 2016.03.04 at 23h 19m 37s.xml">
-      <configuration name="JSONHelperTest.testCreateJSONObjectFromList" configurationId="JUnit" />
+    <history-entry file="BibliotecaHandlerTest_testReturnBook - 2016.03.05 at 00h 47m 05s.xml">
+      <configuration name="BibliotecaHandlerTest.testReturnBook" configurationId="JUnit" />
     </history-entry>
     <history-entry file="JSONHelperTest_testCreateJSONObjectFromList - 2016.03.04 at 23h 20m 13s.xml">
       <configuration name="JSONHelperTest.testCreateJSONObjectFromList" configurationId="JUnit" />
@@ -810,7 +818,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -851,13 +859,14 @@
             <element signature="e#862#863#0" expanded="true" />
             <element signature="e#2342#3345#0" expanded="true" />
             <element signature="e#3344#3345#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#4988#5848#0" expanded="true" />
-            <element signature="e#5847#5848#0" expanded="true" />
-            <element signature="e#5975#6150#0" expanded="true" />
-            <element signature="e#6149#6150#0" expanded="true" />
-            <element signature="e#6291#6539#0" expanded="true" />
-            <element signature="e#6538#6539#0" expanded="true" />
+            <element signature="e#4329#5015#0" expanded="true" />
+            <element signature="e#5014#5015#0" expanded="true" />
+            <element signature="e#5055#5718#0" expanded="true" />
+            <element signature="e#5717#5718#0" expanded="true" />
+            <element signature="e#5845#6020#0" expanded="true" />
+            <element signature="e#6019#6020#0" expanded="true" />
+            <element signature="e#6161#6409#0" expanded="true" />
+            <element signature="e#6408#6409#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -871,14 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6959459">
           <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BookList.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -925,32 +926,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaHandlerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BookList.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#351#357#0" expanded="true" />
-            <element signature="e#822#828#0" expanded="true" />
-            <element signature="e#1466#1472#0" expanded="true" />
-            <element signature="e#1654#1660#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/CurrentBookList.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/MainPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-47.77778">
-          <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
+        <state vertical-scroll-proportion="-39.444443">
+          <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#730#736#0" expanded="true" />
@@ -958,24 +945,39 @@
             <element signature="e#862#863#0" expanded="true" />
             <element signature="e#2342#3345#0" expanded="true" />
             <element signature="e#3344#3345#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#4988#5848#0" expanded="true" />
-            <element signature="e#5847#5848#0" expanded="true" />
-            <element signature="e#5975#6150#0" expanded="true" />
-            <element signature="e#6149#6150#0" expanded="true" />
-            <element signature="e#6291#6539#0" expanded="true" />
-            <element signature="e#6538#6539#0" expanded="true" />
+            <element signature="e#4329#5015#0" expanded="true" />
+            <element signature="e#5014#5015#0" expanded="true" />
+            <element signature="e#5055#5718#0" expanded="true" />
+            <element signature="e#5717#5718#0" expanded="true" />
+            <element signature="e#5845#6020#0" expanded="true" />
+            <element signature="e#6019#6020#0" expanded="true" />
+            <element signature="e#6161#6409#0" expanded="true" />
+            <element signature="e#6408#6409#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8445946">
-          <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="87" selection-start-line="89" selection-start-column="87" selection-end-line="89" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1816#1822#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaHandlerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7297297">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#351#357#0" expanded="true" />
+            <element signature="e#822#828#0" expanded="true" />
+            <element signature="e#1466#1472#0" expanded="true" />
+            <element signature="e#1654#1660#0" expanded="true" />
           </folding>
         </state>
       </provider>

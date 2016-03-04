@@ -44,12 +44,7 @@ public class BibliotecaHandlerTest {
         ArrayList<Book> removedBook = new ArrayList<Book>();
         removedBook.add(new Book("Hello World","DN","1991"));
         BibliotecaHandler.checkOutBook(removedBook);
-        String actulStr = JSONHelper.readJSON(filePath);
-        assertEquals(expectedStr,actulStr);
+        String actualStr = JSONHelper.readJSON(filePath);
+        assertEquals(expectedStr,actualStr);
     }
-
-    /*@Test
-    public void testReturnBook(){
-
-    }*/
 }

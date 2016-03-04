@@ -76,7 +76,8 @@ public class MainPage implements ActionListener{
             }
         });
 
-        JTable bookListTable = new JTable(bookArray,columnNames);
+        final JTable bookListTable = new JTable(bookArray,columnNames);
+        bookListTable.setEnabled(false);
         JScrollPane jsp = new JScrollPane(bookListTable);
         jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -97,13 +98,13 @@ public class MainPage implements ActionListener{
         checkoutBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selectedSearchedBook = targetBookTable.getSelectedRow();
-                if(selectedSearchedBook >= 0){
+                if(targetBookTable.getSelectedRow()>=0){
+                    selectedSearchedBook = targetBookTable.getSelectedRow();
                     String searchedBookName = targetBookTable.getValueAt(selectedSearchedBook,0).toString();
                     ArrayList<Book> searchedBookList = BibliotecaHandler.searchBook(searchedBookName,currentBookList);
                     BibliotecaHandler.checkOutBook(searchedBookList);
                 }else{
-                    JOptionPane.showMessageDialog(null, "Please select a book.");
+                    JOptionPane.showMessageDialog(null, "Please select a valid book.");
                 }
             }
         });
@@ -115,12 +116,9 @@ public class MainPage implements ActionListener{
                 if(selectedSearchedBook >= 0){
                     String searchedBookName = targetBookTable.getValueAt(selectedSearchedBook,0).toString();
                     ArrayList<Book> searchedBookList = BibliotecaHandler.searchBook(searchedBookName,originBookList);
-                    if( searchedBookList.size() >= 0){
-                        currentBookList.add(searchedBookList.get(0));
-                        JOptionPane.showMessageDialog(null,"Thank you for returning the book!");
-                    }else{
-                        JOptionPane.showMessageDialog(null,"That is not a valid book to return!");
-                    }
+                    BibliotecaHandler.returnBook(searchedBookList);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Please select a book.");
                 }
             }
         });

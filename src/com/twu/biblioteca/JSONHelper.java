@@ -54,6 +54,19 @@ public class JSONHelper {
         return itemList;
     }
 
+    public static ArrayList<User> createUserArrayFromJSON(String userStr){
+        ArrayList<User> userList = new ArrayList<User>();
+        JSONObject json= JSONObject.fromObject(userStr);
+        JSONArray jsonArray=json.getJSONArray("users");
+        for(int i=0; i<jsonArray.size(); i++){
+            JSONObject element = JSONObject.fromObject(jsonArray.get(i));
+            User user = new User(element.getString("libraryNumber"),
+                    element.getString("password"), element.getString("name"), element.getString("email"), element.getString("phone"));
+            userList.add(user);
+        }
+        return userList;
+    }
+
     public static JSONObject createJSONObjectFromBookList(ArrayList<Book> itemList){
         ArrayList<Map> list = new ArrayList<Map>();
         JSONObject jsonObject = new JSONObject();

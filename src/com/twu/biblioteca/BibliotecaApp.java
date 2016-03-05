@@ -4,9 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class BibliotecaApp{
     private JFrame frame;
+    static String loggedInUser;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable(){
@@ -50,10 +52,10 @@ public class BibliotecaApp{
 
         JPanel panelCenter = new JPanel();
         JLabel libraryNumLabel = new JLabel("Library Number: ");
-        JTextField libraryNumber = new JTextField();
+        final JTextField libraryNumber = new JTextField();
         libraryNumber.setColumns(20);
         JLabel passwordLabel = new JLabel("Password: ");
-        JTextField password = new JTextField();
+        final JTextField password = new JTextField();
         password.setColumns(20);
         JButton enterBtn = new JButton("Login");
         JButton quit = new JButton("Quit");
@@ -70,7 +72,14 @@ public class BibliotecaApp{
         enterBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MainPage();
+                ArrayList<User> userList = UserHandler.getUserList();
+                Boolean result = UserHandler.confirmUser(libraryNumber.getText(),password.getText(),userList);
+                if(result){
+                    loggedInUser = libraryNumber.getText();
+                    new MainPage();
+                }else{
+                    JOptionPane.showMessageDialog(null,"Invalid library number or password.");
+                }
             }
         });
 

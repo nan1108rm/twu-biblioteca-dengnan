@@ -25,4 +25,11 @@ public class UserHandlerTest {
         ArrayList<User> targetList = UserHandler.searchUser("123-4567",userList);
         assertEquals("dengnan", targetList.get(0).getUserName());
     }
+
+    @Test
+    public void testConfirmUser(){
+        ArrayList<User> userList = UserHandler.getUserList();
+        User loggedin = new User("123-4567", "123456", "dengnan","nan1108rm@outlook.com","12345678901");
+        assertEquals(true,UserHandler.confirmUser(loggedin.getLibraryNum(),loggedin.getPassword(),userList));
+    }
 }

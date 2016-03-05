@@ -5,7 +5,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
 
 
 /**
@@ -18,7 +17,7 @@ public class BibliotecaHandlerTest {
         ArrayList<Book> bookList = new ArrayList<Book>();
         bookList.add(new Book("Hello World", "DN", "1991"));
         bookList.add(new Book("Eat pray love", "Julie", "1998"));
-        Object[][] bookArray = BibliotecaHandler.generateTableData(bookList);
+        Object[][] bookArray = BibliotecaHandler.generateTableDataForBook(bookList);
         assertEquals("Hello World", bookArray[0][0]);
         assertEquals("Eat pray love", bookArray[1][0]);
         assertEquals("1998", bookArray[1][2]);
@@ -37,7 +36,7 @@ public class BibliotecaHandlerTest {
     public void testCheckoutBook(){
         String path = System.getProperty("user.dir");
         String filePath = path + "/src/com/twu/biblioteca/CurrentBookList.json";
-        String expectedStr = "{\"books\":[{\"year\":\"1998\",\"author\":\"Julie\",\"name\":\"Eat pray love\"}]}";
+        String expectedStr = "{\"items\":[{\"year\":\"1998\",\"author\":\"Julie\",\"name\":\"Eat pray love\"}]}";
         ArrayList<Book> bookList = new ArrayList<Book>();
         bookList.add(new Book("Hello World", "DN", "1991"));
         bookList.add(new Book("Eat pray love", "Julie", "1998"));

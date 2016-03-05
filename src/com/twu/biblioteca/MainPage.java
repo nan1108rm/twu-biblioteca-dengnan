@@ -4,22 +4,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JTable;
 
 /**
  * Created by dengnan on 16/2/29.
  */
-public class MainPage implements ActionListener{
+public class MainPage{
     private JFrame frame;
     final static ArrayList<Book> originBookList = BibliotecaHandler.getOriginBookList();
     static ArrayList<Book> currentBookList = BibliotecaHandler.getCurrentBookList();
-    static Object[][] bookArray= BibliotecaHandler.generateTableData(currentBookList);
+    final static ArrayList<Movie> originMovieList = BibliotecaHandler.getOriginMovieList();
+    static ArrayList<Movie> currentMovieList = BibliotecaHandler.getCurrentMovieList();
+
+    static Object[][] bookArray= BibliotecaHandler.generateTableDataForBook(currentBookList);
+    static Object[][] movieArray= BibliotecaHandler.generateTableDataForMovie(currentMovieList);
     String[] columnNames = {"Book Name","Author","Published Year"};
-    static ArrayList<Book> targetBookList = new ArrayList<Book>();
-    static int selectedSearchedBook;
-    static JTable targetBookTable;
+    String[] columnNamesMovie = {"Movie Name","Director","Year","Rating"};
+    static int selectedSearchedItem;
 
     public MainPage(){
         initialize();
@@ -36,118 +38,103 @@ public class MainPage implements ActionListener{
         panelMenu.add(menuBar);
         frame.getContentPane().add(BorderLayout.NORTH,panelMenu);
 
-        final JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setVisible(true);
-        frame.getContentPane().add(BorderLayout.CENTER,mainPanel);
+        final JPanel panelCenter = new JPanel();
+        final CardLayout card = new CardLayout();
+        panelCenter.setLayout(card);
+        panelCenter.setVisible(true);
+        frame.getContentPane().add(BorderLayout.CENTER,panelCenter);
 
-        final JPanel mainPanelNorth = new JPanel();
-        mainPanelNorth.setBackground(new Color(180, 157, 216,215));
-        final JTextField searchBookTxt = new JTextField();
-        searchBookTxt.setColumns(20);
-        JButton searchBtn = new JButton("Search");
-        mainPanelNorth.add(searchBookTxt);
-        mainPanelNorth.add(searchBtn);
-        mainPanelNorth.setVisible(true);
-        mainPanel.add(BorderLayout.NORTH,mainPanelNorth);
+        final JPanel mainPanelBook = new JPanel();
+        mainPanelBook.setLayout(null);
+        mainPanelBook.setBackground(new Color(180, 157, 216,215));
+        panelCenter.add(mainPanelBook,"Book");
 
-        final JPanel mainPanelCenter = new JPanel();
-        mainPanelCenter.setLayout(null);
-        mainPanelCenter.setBackground(new Color(180, 157, 216,215));
-        final JPanel panelSearchBook = new JPanel();
-        panelSearchBook.setLayout(null);
-        panelSearchBook.setBackground(new Color(180, 157, 216,215));
-        panelSearchBook.setVisible(false);
-        searchBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               if(searchBookTxt.getText() != null){
-                   targetBookList = BibliotecaHandler.searchBook(searchBookTxt.getText(),originBookList);
-                   bookArray = BibliotecaHandler.generateTableData(targetBookList);
-                   mainPanelCenter.setVisible(false);
-                   panelSearchBook.setVisible(true);
-                   targetBookTable = new JTable(bookArray,columnNames);
-                   JScrollPane jsp = new JScrollPane(targetBookTable);
-                   jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-                   jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-                   jsp.setBounds(100,50,500,400);
-                   panelSearchBook.add(jsp);
-                   mainPanel.add(BorderLayout.CENTER,panelSearchBook);
-               }
-            }
-        });
+        final JPanel mainPanelMovie = new JPanel();
+        mainPanelMovie.setLayout(null);
+        mainPanelMovie.setBackground(new Color(180, 157, 216,215));
+        panelCenter.add(mainPanelMovie,"Movie");
+
+        final JTable movieListTable = new JTable(movieArray,columnNamesMovie);
+        JScrollPane jsp2 = new JScrollPane(movieListTable);
+        jsp2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jsp2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        jsp2.setBounds(100,50,500,400);
+        mainPanelMovie.add(jsp2);
+
 
         final JTable bookListTable = new JTable(bookArray,columnNames);
-        bookListTable.setEnabled(false);
         JScrollPane jsp = new JScrollPane(bookListTable);
         jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         jsp.setBounds(100,50,500,400);
-        mainPanelCenter.add(jsp);
-        mainPanelCenter.setVisible(false);
-        mainPanel.add(BorderLayout.CENTER,mainPanelCenter);
+        mainPanelBook.add(jsp);
 
-        final JPanel mainPanelEast = new JPanel();
-        mainPanelEast.setLayout(new BoxLayout(mainPanelEast,BoxLayout.Y_AXIS));
-        mainPanelEast.setVisible(true);
-        JButton checkoutBtn = new JButton("Check out");
-        JButton returnBtn = new JButton("Return");
-        mainPanelEast.add(checkoutBtn);
-        mainPanelEast.add(returnBtn);
-        mainPanel.add(BorderLayout.EAST,mainPanelEast);
-
-        checkoutBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(targetBookTable.getSelectedRow()>=0){
-                    selectedSearchedBook = targetBookTable.getSelectedRow();
-                    String searchedBookName = targetBookTable.getValueAt(selectedSearchedBook,0).toString();
-                    ArrayList<Book> searchedBookList = BibliotecaHandler.searchBook(searchedBookName,currentBookList);
-                    BibliotecaHandler.checkOutBook(searchedBookList);
-                }else{
-                    JOptionPane.showMessageDialog(null, "Please select a valid book.");
-                }
-            }
-        });
-
-        returnBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                selectedSearchedBook = targetBookTable.getSelectedRow();
-                if(selectedSearchedBook >= 0){
-                    String searchedBookName = targetBookTable.getValueAt(selectedSearchedBook,0).toString();
-                    ArrayList<Book> searchedBookList = BibliotecaHandler.searchBook(searchedBookName,originBookList);
-                    BibliotecaHandler.returnBook(searchedBookList);
-                }else{
-                    JOptionPane.showMessageDialog(null, "Please select a book.");
-                }
-            }
-        });
-
-        JMenuItem bookItem = new JMenuItem("Book List");
+        final JMenuItem bookItem = new JMenuItem("Books");
         menuBar.add(bookItem);
         bookItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainPanelCenter.setVisible(true);
+                card.show(panelCenter,"Book");
             }
         });
 
-        JMenuItem invalidItem = new JMenuItem("Invalid option");
-        menuBar.add(invalidItem);
-        invalidItem.addActionListener(new ActionListener() {
+        final JMenuItem movieItem = new JMenuItem("Movies");
+        menuBar.add(movieItem);
+        movieItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainPanelCenter.setVisible(false);
-                JOptionPane.showMessageDialog(null, "Invalid option!");
+                card.show(panelCenter,"Movie");
             }
         });
+
+        final JPanel panelEast = new JPanel();
+        panelEast.setLayout(new BoxLayout(panelEast,BoxLayout.Y_AXIS));
+        panelEast.setVisible(true);
+        JButton checkoutBtn = new JButton("Check out");
+        JButton returnBtn = new JButton("Return");
+        panelEast.add(checkoutBtn);
+        panelEast.add(returnBtn);
+        frame.getContentPane().add(BorderLayout.EAST,panelEast);
+
+        checkoutBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(bookListTable.getSelectedRow()>=0){
+                    selectedSearchedItem = bookListTable.getSelectedRow();
+                    String searchedBookName = bookListTable.getValueAt(selectedSearchedItem,0).toString();
+                    ArrayList<Book> searchedBookList = BibliotecaHandler.searchBook(searchedBookName,currentBookList);
+                    BibliotecaHandler.checkOutBook(searchedBookList);
+                }else if(movieListTable.getSelectedRow()>=0){
+                    selectedSearchedItem = movieListTable.getSelectedRow();
+                    String searchedMovieName = movieListTable.getValueAt(selectedSearchedItem,0).toString();
+                    ArrayList<Movie> searchedMovieList = BibliotecaHandler.searchMovie(searchedMovieName,currentMovieList);
+                    BibliotecaHandler.checkOutMovie(searchedMovieList);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Please select a valid item.");
+                }
+            }
+        });
+
+        /*returnBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedSearchedItem = bookListTable.getSelectedRow();
+                selectedSearchedItem = bookListTable.getSelectedRow();
+                if(selectedSearchedItem >= 0 && bookItem.isSelected()){
+                    String searchedBookName = bookListTable.getValueAt(selectedSearchedItem,0).toString();
+                    ArrayList<Book> searchedBookList = BibliotecaHandler.searchBook(searchedBookName,originBookList);
+                    BibliotecaHandler.returnBook(searchedBookList);
+                }else if(selectedSearchedItem >= 0 && movieItem.isSelected()){
+                    String searchedMovieName = movieListTable.getValueAt(selectedSearchedItem,0).toString();
+                    ArrayList<Movie> searchedMovieList = BibliotecaHandler.searchMovie(searchedMovieName,originMovieList);
+                    BibliotecaHandler.returnMovie(searchedMovieList);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Please select a book.");
+                }
+            }
+        });*/
 
         frame.setSize(800,600);
         frame.setVisible(true);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
     }
 }

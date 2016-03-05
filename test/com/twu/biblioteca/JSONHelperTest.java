@@ -14,36 +14,36 @@ import static org.junit.Assert.assertEquals;
  */
 public class JSONHelperTest {
     @Test
-    public void testReadJSONBookList(){
+    public void testReadJSONItemList(){
         String path = System.getProperty("user.dir");
         String filePath = path + "/src/com/twu/biblioteca/BookList.json";
-        String json = "{\"books\":[{\"name\":\"Hello World\",\"author\":\"DN\",\"year\":\"1991\"},{\"name\":\"Eat pray love\",\"author\":\"Julie\",\"year\":\"1998\"}]}";
+        String json = "{\"items\":[{\"name\":\"Hello World\",\"author\":\"DN\",\"year\":\"1991\"},{\"name\":\"Eat pray love\",\"author\":\"Julie\",\"year\":\"1998\"}]}";
         String bookStr = JSONHelper.readJSON(filePath);
         assertEquals(json, bookStr);
     }
 
     @Test
-    public void testCreateBookListFromJSON(){
+    public void testCreateItemListFromJSON(){
         String path = System.getProperty("user.dir");
         String filePath = path + "/src/com/twu/biblioteca/BookList.json";
-        String bookStr = JSONHelper.readJSON(filePath);
-        ArrayList<Book> bookList = JSONHelper.createBookArrayFromJSON(bookStr);
-        assertEquals("Hello World", bookList.get(0).getName());
-        assertEquals("Eat pray love", bookList.get(1).getName());
+        String itemStr = JSONHelper.readJSON(filePath);
+        ArrayList<Book> itemList = JSONHelper.createBookArrayFromJSON(itemStr);
+        assertEquals("Hello World", itemList.get(0).getName());
+        assertEquals("Eat pray love", itemList.get(1).getName());
     }
 
     @Test
-    public void testCreateJSONObjectFromList(){
-        String expectedStr = "{\"books\":[{\"year\":\"1991\",\"author\":\"DN\",\"name\":\"Hello World\"}]}";
-        ArrayList<Book> bookList = new ArrayList<Book>();
-        bookList.add(new Book("Hello World","DN","1991"));
-        String actualStr = JSONHelper.createJSONObjectFromList(bookList).toString();
+    public void testCreateJSONObjectFromBookList(){
+        String expectedStr = "{\"items\":[{\"year\":\"1991\",\"author\":\"DN\",\"name\":\"Hello World\"}]}";
+        ArrayList<Book> itemList = new ArrayList<Book>();
+        itemList.add(new Book("Hello World","DN","1991"));
+        String actualStr = JSONHelper.createJSONObjectFromBookList(itemList).toString();
         assertEquals(expectedStr,actualStr);
     }
 
     @Test
     public void testWriteJSONBookList() throws IOException {
-        String expectedStr = "{\"books\":[{\"year\":\"1991\",\"author\":\"DN\",\"name\":\"Hello World\"}]}";
+        String expectedStr = "{\"items\":[{\"year\":\"1991\",\"author\":\"DN\",\"name\":\"Hello World\"}]}";
         String path = System.getProperty("user.dir");
         String filePath = path + "/src/com/twu/biblioteca/CurrentBookList.json";
         JSONObject jsonObj = JSONObject.fromObject(expectedStr);

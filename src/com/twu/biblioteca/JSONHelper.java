@@ -31,30 +31,60 @@ public class JSONHelper {
     }
 
     public static ArrayList<Book> createBookArrayFromJSON(String bookStr){
-        ArrayList<Book> bookList = new ArrayList<Book>();
+        ArrayList<Book> itemList = new ArrayList<Book>();
         JSONObject json= JSONObject.fromObject(bookStr);
-        JSONArray jsonArray=json.getJSONArray("books");
+        JSONArray jsonArray=json.getJSONArray("items");
         for(int i=0; i<jsonArray.size(); i++){
             JSONObject element = JSONObject.fromObject(jsonArray.get(i));
-            Book aBook = new Book(element.getString("name"), element.getString("author"), element.getString("year"));
-            bookList.add(aBook);
+            Book aItem = new Book(element.getString("name"), element.getString("author"), element.getString("year"));
+            itemList.add(aItem);
         }
-        return bookList;
+        return itemList;
     }
 
-    public static JSONObject createJSONObjectFromList(ArrayList<Book> bookList){
+    public static ArrayList<Movie> createMovieArrayFromJSON(String itemStr){
+        ArrayList<Movie> itemList = new ArrayList<Movie>();
+        JSONObject json= JSONObject.fromObject(itemStr);
+        JSONArray jsonArray=json.getJSONArray("items");
+        for(int i=0; i<jsonArray.size(); i++){
+            JSONObject element = JSONObject.fromObject(jsonArray.get(i));
+            Movie aItem = new Movie(element.getString("name"), element.getString("director"), element.getString("year"), element.getString("rating"));
+            itemList.add(aItem);
+        }
+        return itemList;
+    }
+
+    public static JSONObject createJSONObjectFromBookList(ArrayList<Book> itemList){
         ArrayList<Map> list = new ArrayList<Map>();
         JSONObject jsonObject = new JSONObject();
-        for(int i=0; i<bookList.size(); i++){
+        for(int i=0; i<itemList.size(); i++){
+            Book aBook = itemList.get(i);
             Map<String, String> map = new HashMap<String, String>();
-            map.put("year", bookList.get(i).getYear());
-            map.put("name", bookList.get(i).getName());
-            map.put("author", bookList.get(i).getAuthor());
+            map.put("name", aBook.getName());
+            map.put("author", aBook.getAuthor());
+            map.put("year", aBook.getYear());
+            list.add(map);
+        }
 
+        JSONArray jsonArray = JSONArray.fromObject(list);
+        jsonObject.put("items",jsonArray);
+        return jsonObject;
+    }
+
+    public static JSONObject createJSONObjectFromMovieList(ArrayList<Movie> itemList){
+        ArrayList<Map> list = new ArrayList<Map>();
+        JSONObject jsonObject = new JSONObject();
+        for(int i=0; i<itemList.size(); i++){
+            Movie aMovie = itemList.get(i);
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("name", aMovie.getName());
+            map.put("director", aMovie.getDirector());
+            map.put("year", aMovie.getYear());
+            map.put("rating", aMovie.getRating());
             list.add(map);
         }
         JSONArray jsonArray = JSONArray.fromObject(list);
-        jsonObject.put("books",jsonArray);
+        jsonObject.put("items",jsonArray);
         return jsonObject;
     }
 

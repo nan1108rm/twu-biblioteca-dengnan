@@ -92,7 +92,10 @@ public class MainPage{
         panelEast.setVisible(true);
         JButton checkoutBtn = new JButton("Check out");
         JButton returnBtn = new JButton("Return");
+        final JTextField returnBookField = new JTextField();
+        returnBookField.setSize(50,25);
         panelEast.add(checkoutBtn);
+        panelEast.add(returnBookField);
         panelEast.add(returnBtn);
         frame.getContentPane().add(BorderLayout.EAST,panelEast);
 
@@ -115,24 +118,21 @@ public class MainPage{
             }
         });
 
-        /*returnBtn.addActionListener(new ActionListener() {
+        returnBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                selectedSearchedItem = bookListTable.getSelectedRow();
-                selectedSearchedItem = bookListTable.getSelectedRow();
-                if(selectedSearchedItem >= 0 && bookItem.isSelected()){
-                    String searchedBookName = bookListTable.getValueAt(selectedSearchedItem,0).toString();
-                    ArrayList<Book> searchedBookList = BibliotecaHandler.searchBook(searchedBookName,originBookList);
-                    BibliotecaHandler.returnBook(searchedBookList);
-                }else if(selectedSearchedItem >= 0 && movieItem.isSelected()){
-                    String searchedMovieName = movieListTable.getValueAt(selectedSearchedItem,0).toString();
-                    ArrayList<Movie> searchedMovieList = BibliotecaHandler.searchMovie(searchedMovieName,originMovieList);
+                String itemStr = returnBookField.getText();
+                if(itemStr != null && BibliotecaHandler.searchMovie(itemStr,originMovieList).size()>0){
+                    ArrayList<Movie> searchedMovieList = BibliotecaHandler.searchMovie(itemStr,originMovieList);
                     BibliotecaHandler.returnMovie(searchedMovieList);
+                }else if(itemStr != null && BibliotecaHandler.searchBook(itemStr,originBookList).size()>0) {
+                    ArrayList<Book> searchedBookList = BibliotecaHandler.searchBook(itemStr, originBookList);
+                    BibliotecaHandler.returnBook(searchedBookList);
                 }else{
                     JOptionPane.showMessageDialog(null, "Please select a book.");
                 }
             }
-        });*/
+        });
 
         frame.setSize(800,600);
         frame.setVisible(true);

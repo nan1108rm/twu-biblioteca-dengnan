@@ -49,10 +49,20 @@ public class BibliotecaApp{
         frame.getContentPane().add(BorderLayout.EAST,panelRight);
 
         JPanel panelCenter = new JPanel();
-        JButton enterBtn = new JButton("Enter");
+        JLabel libraryNumLabel = new JLabel("Library Number: ");
+        JTextField libraryNumber = new JTextField();
+        libraryNumber.setColumns(20);
+        JLabel passwordLabel = new JLabel("Password: ");
+        JTextField password = new JTextField();
+        password.setColumns(20);
+        JButton enterBtn = new JButton("Login");
         JButton quit = new JButton("Quit");
         panelCenter.setLayout(new BoxLayout(panelCenter,BoxLayout.Y_AXIS));
         panelCenter.setBackground(new Color(202, 184, 238));
+        panelCenter.add(libraryNumLabel);
+        panelCenter.add(libraryNumber);
+        panelCenter.add(passwordLabel);
+        panelCenter.add(password);
         panelCenter.add(enterBtn);
         panelCenter.add(quit);
         frame.getContentPane().add(BorderLayout.CENTER, panelCenter);

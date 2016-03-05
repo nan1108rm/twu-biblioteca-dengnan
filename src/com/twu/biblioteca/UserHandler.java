@@ -13,4 +13,14 @@ public class UserHandler {
         String userStr = JSONHelper.readJSON(userPath);
         return JSONHelper.createUserArrayFromJSON(userStr);
     }
+
+    public static ArrayList<User> searchUser(String libraryNumber,ArrayList<User> userList){
+        ArrayList<User> targetUserList = new ArrayList<User>();
+        for(User user:userList){
+            if(user.getLibraryNum().equals(libraryNumber)){
+                targetUserList.add(user);
+            }
+        }
+        return targetUserList;
+    }
 }

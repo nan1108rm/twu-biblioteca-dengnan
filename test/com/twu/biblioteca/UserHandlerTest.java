@@ -16,4 +16,13 @@ public class UserHandlerTest {
         assertEquals("dengnan",userList.get(0).getUserName());
         assertEquals("Gary",userList.get(1).getUserName());
     }
+
+    @Test
+    public void testSearchUser(){
+        ArrayList<User> userList = new ArrayList<User>();
+        userList.add(new User("123-4567", "123456", "dengnan","nan1108rm@outlook.com","12345678901"));
+        userList.add(new User("123-6253", "54321", "Gary","gary@outlook.com","12345678901"));
+        ArrayList<User> targetList = UserHandler.searchUser("123-4567",userList);
+        assertEquals("dengnan", targetList.get(0).getUserName());
+    }
 }

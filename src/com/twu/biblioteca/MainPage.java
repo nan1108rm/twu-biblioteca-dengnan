@@ -23,6 +23,11 @@ public class MainPage{
     String[] columnNamesMovie = {"Movie Name","Director","Year","Rating"};
     static int selectedSearchedItem;
 
+    ArrayList<User> loggedInUserList = UserHandler.searchUser(BibliotecaApp.loggedInUser,UserHandler.getUserList());
+    String userInfoStr = "Library number: " + loggedInUserList.get(0).getLibraryNum() + "\nUser name: " +
+            loggedInUserList.get(0).getUserName() + "\nEmail Address: " + loggedInUserList.get(0).getEmail() +
+            "\nPhone Number: " + loggedInUserList.get(0).getPhone();
+
     public MainPage(){
         initialize();
     }
@@ -54,6 +59,19 @@ public class MainPage{
         mainPanelMovie.setBackground(new Color(180, 157, 216,215));
         panelCenter.add(mainPanelMovie,"Movie");
 
+        final JPanel mainPanelUser = new JPanel();
+        mainPanelUser.setLayout(null);
+        mainPanelUser.setBackground(new Color(180, 157, 216,215));
+        panelCenter.add(mainPanelUser,"User");
+
+        final JTextPane userInforText = new JTextPane();
+        userInforText.setText(userInfoStr);
+        JScrollPane jsp3 = new JScrollPane(userInforText);
+        jsp3.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jsp3.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        jsp3.setBounds(100,50,500,400);
+        mainPanelUser.add(jsp3);
+
         final JTable movieListTable = new JTable(movieArray,columnNamesMovie);
         JScrollPane jsp2 = new JScrollPane(movieListTable);
         jsp2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -84,6 +102,15 @@ public class MainPage{
             @Override
             public void actionPerformed(ActionEvent e) {
                 card.show(panelCenter,"Movie");
+            }
+        });
+
+        final JMenuItem userInfo = new JMenuItem("User Information");
+        menuBar.add(userInfo);
+        userInfo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                card.show(panelCenter,"User");
             }
         });
 
